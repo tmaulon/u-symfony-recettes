@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	Page listant les aliments
+{% endblock %}
+{% block monTitre %}
+	Page listant les aliments
+{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="row align-items-start justify-content-between">
+
+
+			{% for aliment in aliments %}
+				<div class="col-sm-4 col-6">
+					<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+						<div class="card-header">{{ aliment.nom }}</div>
+						<div class="card-body">
+							<img class="img-fluid" src="{{ asset('images/' ~ aliment.image) }}" alt="">
+							<h5 class="card-title">
+								Prix(kilo) :
+								{{ aliment.prix }}€
+							</h5>
+							<h5 class="card-title">
+								Calories :
+								{{ aliment.calorie }}
+							</h5>
+							<table class="table table-hover">
+								<thead>
+									<tr class="table-light">
+										<th>Propriété</th>
+										<th>Valeur (100g)</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Proteine</td>
+										<td>{{ aliment.proteine }}</td>
+									</tr>
+									<tr>
+										<td>Glucide</td>
+										<td>{{ aliment.glucide }}</td>
+									</tr>
+									<tr>
+										<td>Lipide</td>
+										<td>{{ aliment.lipide }}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
