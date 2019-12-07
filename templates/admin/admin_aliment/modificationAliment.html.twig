@@ -10,4 +10,11 @@
 	{{ aliment.nom }}
 {% endblock %}
 
-{% block body %}{% endblock %}
+{% block body %}
+	<div class="container">
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		<input type="submit" class="btn btn-primary mt-2" value="Enregistrer">
+		{{ form_end(form) }}
+	</div>
+{% endblock %}
